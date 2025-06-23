@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The goal of this project was to build and observe a honeynet in Azure that was left unsecured and open to the internet. Then secure the environment and observe the difference in activity. The environment consisted of 2 virtual machines and a few other resources. The activity of these resources was ingested into a Log Analytics workspace, and  Sentinel was then used to trigger alerts, create attack maps, and create incidents that I could respond to and resolve.  I recorded some security metrics of the insecure environment for 24 hours, applied security controls to harden the environment, and then recorded the same metrics for another 24 hours.  The metrics recorded are: 
+The goal of this project was to build and observe a honeynet in Azure that was left unsecured and open to the internet. Then secure the environment and observe the difference in activity. The environment consisted of 2 virtual machines and a few other resources. The activity of these resources was ingested into a Log Analytics workspace, and  Sentinel was then used to trigger alerts, create attack maps, and create incidents that I could respond to and resolve.  I recorded some security metrics of the insecure environment for 24 hours, applied security controls to harden the environment, and then recorded the same metrics after another 24 hours.  The metrics recorded are: 
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
 - SecurityAlert (Log Analytics Alerts Triggered)
