@@ -16,7 +16,7 @@ The goal of this project was to build and observe a honeynet in Azure that was l
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
 
-The architecture of the mini honeynet in Azure consists of the following components:
+The resources in the Azure Honeunet are:
 
 - Virtual Network (VNet)
 - Network Security Group (NSG)
@@ -32,7 +32,7 @@ All the "BEFORE" metrics for the resources were originally deployed and exposed 
 
 
 
-The "AFTER" metrics had hardened Network Security Groups by blocking all internet traffic except my local network, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+The "AFTER" metrics had hardened Network Security Groups by blocking all internet traffic except my local network, and all other resources were protected by their built-in firewalls as well as an established Private Endpoint.
 
 ![2 1 SC 7-Bondary protection after](https://github.com/user-attachments/assets/f1bc77e7-e23f-47ce-9a57-30fe8536dcfb)
 
