@@ -16,7 +16,7 @@ The goal of this project was to build and observe a honeynet in Azure that was l
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
 
-The resources in the Azure Honeunet are:
+The resources in the Azure Honeynet are:
 
 - Virtual Network (VNet)
 - Network Security Group (NSG)
