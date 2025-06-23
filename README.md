@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The goal of this project was to build and observe an environment in Azure that was left unsecured and open to the internet. Then secure the environment and observe the difference in activity. The environment consisted of 2 virtual machines and a few other resources. The activity of these resources was ingested into a Log Analytics workspace, and  Sentinel was then used to trigger alerts, create attack maps, and create incidents that I could respond to and resolve.  I recorded some security metrics of the insecure environment for 24 hours, applied security controls to harden the environment, and then recorded the same metrics for another 24 hours.  The metrics recorded are: 
+The goal of this project was to build and observe a honeynet in Azure that was left unsecured and open to the internet. Then secure the environment and observe the difference in activity. The environment consisted of 2 virtual machines and a few other resources. The activity of these resources was ingested into a Log Analytics workspace, and  Sentinel was then used to trigger alerts, create attack maps, and create incidents that I could respond to and resolve.  I recorded some security metrics of the insecure environment for 24 hours, applied security controls to harden the environment, and then recorded the same metrics for another 24 hours.  The metrics recorded are: 
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
 - SecurityAlert (Log Analytics Alerts Triggered)
@@ -26,28 +26,41 @@ The architecture of the mini honeynet in Azure consists of the following compone
 - Azure Storage Account
 - Microsoft Sentinel
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+All the "BEFORE" metrics for the resources were originally deployed and exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls disabled, and all other resources were visible to the Internet.
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+pics
 
-## Attack Maps Before Hardening / Security Controls
+The "AFTER" metrics had hardened Network Security Groups by blocking all internet traffic except my local network, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+
+pics
+
+# Attack Maps Before Hardening / Security Controls
+<h2>Linux Virtual Machine<h2/>
+  
 ![6  linux-ssh-auth-fail map before](https://github.com/user-attachments/assets/457e5371-71b2-4b61-ae79-abcf9c24544f)<br>
+<h2>Network Security Group<h2/>
+  
 ![7  nsg-malicious-allowed-in](https://github.com/user-attachments/assets/6d1a69fd-bfdd-4e1d-b2a6-ad1237b18142)<br>
+
+<h2>Windows Virtual Machine<h2/>
+  
 ![8  windows-rdp-auth-fail map before](https://github.com/user-attachments/assets/fa8b5e69-d96f-4831-a597-6b8f023326cf)<br>
 
 ## Metrics Before Hardening / Security Controls
 
-The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2023-03-15 17:04:29
-Stop Time 2023-03-16 17:04:29
+<p>The following table shows the metrics we measured in our insecure environment for 24 hours:<p/>
+  
+Start Time 6/14/2025 8:20:56
+  
+Stop Time 6/15/2025 8:20:56
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 19470
-| Syslog                   | 3028
-| SecurityAlert            | 10
-| SecurityIncident         | 348
-| AzureNetworkAnalytics_CL | 843
+| SecurityEvent            | 12710
+| Syslog                   | 5899
+| SecurityAlert            | 0
+| SecurityIncident         | 148
+| AzureNetworkAnalytics_CL | 1539
 
 ## Attack Maps Before Hardening / Security Controls
 
@@ -55,14 +68,16 @@ Stop Time 2023-03-16 17:04:29
 
 ## Metrics After Hardening / Security Controls
 
-The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2023-03-18 15:37
-Stop Time	2023-03-19 15:37
+<p>The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:<p/>
+  
+Start Time 6/16/2025 8:14:43
+
+Stop Time	6/17/2025 8:14:43
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 8778
-| Syslog                   | 25
+| SecurityEvent            | 1923
+| Syslog                   | 0
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
