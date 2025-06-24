@@ -11,12 +11,6 @@ The goal of this project was to build and observe a honeynet in Azure that was l
 - SecurityIncident (Incidents created by Sentinel)
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
 
-## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
-
-## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
-
 The resources in the Azure Honeynet are:
 
 - Virtual Network (VNet)
@@ -66,9 +60,13 @@ Stop Time 6/15/2025 8:20:56
 | SecurityIncident         | 148
 | AzureNetworkAnalytics_CL | 1539
 
-## Attack Maps Before Hardening / Security Controls
+# Environment Hardening Steps
+
+
+## Attack Maps After Hardening / Security Controls
 
 ```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
+
 
 ## Metrics After Hardening / Security Controls
 
@@ -85,6 +83,18 @@ Stop Time	6/17/2025 8:14:43
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
+
+
+## Overall Improvement
+| Metric                   | %
+| ------------------------ | -----
+| SecurityEvent            | -84.87%
+| Syslog                   | -100.00%
+| SecurityAlert            | 0
+| SecurityIncident         | -100.00%
+| AzureNetworkAnalytics_CL | -100.00%
+
+-The SecurityAlert metric remains at zero due to there being no recordable incidents in the unsecured environment in the recorded time.
 
 ## Conclusion
 
