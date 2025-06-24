@@ -21,6 +21,14 @@ The resources in the Azure Honeynet are:
 - Azure Storage Account
 - Microsoft Sentinel
 
+Other Technologies and Regulatory Compliance used:
+
+- Microsoft Defender for Cloud
+- Windows Remote Desktop
+- Windows PowerShell
+- Command Prompt
+- NIST 800 53 Rev 5
+
 All the "BEFORE" metrics for the resources were originally deployed and exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls disabled to allow open visibility on the Internet, and all other resources were visible to the Internet with no Private endpoint.
 
 ![1  SC 7-Bondary protection before](https://github.com/user-attachments/assets/f5d96fb7-2f6b-4374-a623-7993ddeaeb94)
