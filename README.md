@@ -62,8 +62,13 @@ Stop Time 6/15/2025 8:20:56
 
 # Environment Hardening Steps
 
+- Implement NIST 800-53 Rev 5
+- Set the Firewall and Private Endpoint for Storage Account
+- Set the Firewall and Private Endpoint for Key Vault
+- Set new Inbound Traffic Rule for VMs Network Security Groups
 
-## Attack Maps After Hardening / Security Controls
+
+# Attack Maps After Hardening / Security Controls
 
 ```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
 
@@ -100,4 +105,3 @@ Stop Time	6/17/2025 8:14:43
 
 For this project, I created an environment in Azure vulnerable to penetration attempts on the internet. The activity was logged and ingested into a Log Analytics workspace, and Sentinel was utilized to create attack maps and incidents based on security alerts. The metrics of the alerts were measured before any security protocols were implemented, then again after hardening the environment. There was a significant decrease in security events, with most of the metrics measured reduced by 100% in the time recorded after implementing security protocols.
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
