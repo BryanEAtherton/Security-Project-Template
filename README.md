@@ -21,7 +21,7 @@ The resources in the Azure Honeynet are:
 - Azure Storage Account
 - Microsoft Sentinel
 
-All the "BEFORE" metrics for the resources were originally deployed and exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls disabled, and all other resources were visible to the Internet with no Private endpoint.
+All the "BEFORE" metrics for the resources were originally deployed and exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls disabled to allow open visibility on the Internet, and all other resources were visible to the Internet with no Private endpoint.
 
 ![1  SC 7-Bondary protection before](https://github.com/user-attachments/assets/f5d96fb7-2f6b-4374-a623-7993ddeaeb94)
 
@@ -63,9 +63,9 @@ Stop Time 6/15/2025 8:20:56
 # Environment Hardening Steps
 
 - Implement NIST 800-53 Rev 5
-- Set the Firewall and Private Endpoint for Storage Account
-- Set the Firewall and Private Endpoint for Key Vault
-- Set new Inbound Traffic Rule for VMs Network Security Groups
+- Set the Firewall and Private Endpoint for the Azure Storage Account
+- Set the Firewall and Private Endpoint for the Azure Key Vault
+- Restrict VMs' Network Security Groups to only local traffic
 
 
 # Attack Maps After Hardening / Security Controls
@@ -75,7 +75,7 @@ Stop Time 6/15/2025 8:20:56
 
 ## Metrics After Hardening / Security Controls
 
-<p>The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:<p/>
+<p>The following table shows the metrics we measured in our environment for another 24 hours, after we have applied security controls:<p/>
   
 Start Time 6/16/2025 8:14:43
 
@@ -99,9 +99,9 @@ Stop Time	6/17/2025 8:14:43
 | SecurityIncident         | -100.00%
 | AzureNetworkAnalytics_CL | -100.00%
 
--The SecurityAlert metric remains at zero due to there being no recordable incidents in the unsecured environment in the recorded time.
+-The SecurityAlert metric remains at zero due to there being no recordable incidents in the insecure environment within the recorded time.
 
 ## Conclusion
 
-For this project, I created an environment in Azure vulnerable to penetration attempts on the internet. The activity was logged and ingested into a Log Analytics workspace, and Sentinel was utilized to create attack maps and incidents based on security alerts. The metrics of the alerts were measured before any security protocols were implemented, then again after hardening the environment. There was a significant decrease in security events, with most of the metrics measured reduced by 100% in the time recorded after implementing security protocols.
+For this project, I created an environment in Azure vulnerable to penetration attempts on the internet. The activity was logged and ingested into a Log Analytics workspace, and Sentinel was utilized to create attack maps and incidents based on security alerts that were set. The metrics of the alerts were measured before any security protocols were implemented, then again after hardening the environment. There was a significant decrease in security events, with most of the metrics measured reduced by 100% in the time recorded after implementing security protocols.
 
